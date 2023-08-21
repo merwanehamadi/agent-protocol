@@ -384,3 +384,7 @@ components:
                           type: boolean
                           default: false
                           example: false
+
+servers:
+  - url: 'http://0.0.0.0:8000'
+    description: Local server
