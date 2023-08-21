@@ -383,3 +383,4 @@ components:
                           description: Indicates whether this is the last step in the task. # Updated description
                           type: boolean
                           default: false
+                          example: false
