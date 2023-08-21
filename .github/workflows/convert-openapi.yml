@@ -3,7 +3,7 @@ name: Convert OpenAPI
 on:
   push:
     paths:
-      - 'postman/schemas/openapi.yaml'
+      - 'openapi.yml'
 
 jobs:
   convert:
@@ -24,13 +24,13 @@ jobs:
       run: npm install -g swagger-cli
 
     - name: Convert openapi.yml to openapi.json
-      run: swagger-cli bundle -r openapi.yml -o openapi.json -t json
+      run: swagger-cli bundle -r postman/schemas/openapi.yml -o postman/schemas/openapi.json -t json
 
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add openapi.json
+        git add postman/schemas/openapi.json
         git commit -m "Convert openapi.yml to openapi.json" || echo "No changes to commit"
         git push
         
