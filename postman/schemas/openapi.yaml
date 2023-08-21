@@ -274,16 +274,19 @@ components:
                     description: File to upload.
                     type: string
                     format: binary
+                    example: "path/to/your/file.txt"
                 relative_path:
                     description: Relative path of the artifact in the agent's workspace.
                     type: string
                     example: "python/code"
 
         StepInput:
+            type: object # Declared type
             description: Input parameters for the task step. Any value is allowed.
             example: "{\n\"file_to_refactor\": \"models.py\"\n}"
 
         StepOutput:
+            type: object
             description: Output that the task step has produced. Any value is allowed.
             example: "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
 
@@ -359,6 +362,7 @@ components:
                       status:
                           description: The status of the task step.
                           type: string
+                          example: "created" # Added example
                           enum:
                               - "created"
                               - "running"
@@ -376,6 +380,6 @@ components:
                           items:
                               $ref: "#/components/schemas/Artifact"
                       is_last:
-                          description: Whether this is the last step in the task.
+                          description: Indicates whether this is the last step in the task. # Updated description
                           type: boolean
                           default: false
