@@ -1,4 +1,7 @@
 openapi: 3.0.1
+servers:
+  - url: 'http://0.0.0.0:8000'
+    description: Local server
 info:
     title: Agent Protocol
     description: Specification of the API protocol for communication with an agent.
@@ -384,7 +387,3 @@ components:
                           type: boolean
                           default: false
                           example: false
-
-servers:
-  - url: 'http://0.0.0.0:8000'
-    description: Local server
