@@ -15,6 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "4e683aa5-1568-4a76-9c2b-ca73b1955139",
 								"exec": [
 									"Object.keys(pm.globals.toObject()).forEach((key) => {",
 									"    pm.globals.unset(key);",
@@ -26,10 +27,10 @@
 									"",
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
+									"});",
+									""
 								],
-								"type": "text/javascript",
-								"id": "4e683aa5-1568-4a76-9c2b-ca73b1955139"
+								"type": "text/javascript"
 							}
 						}
 					],
