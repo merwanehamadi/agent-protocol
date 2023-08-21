@@ -15,6 +15,7 @@ files[] = {"id":"28411126-d0e392f7-0d01-4aa6-bb5d-aee165516aef","path":"Agent Pr
 
 [config.relations.apiDefinition]
 rootDirectory = postman/schemas
+files[] = {"path":"openapi.json","metaData":{}}
 files[] = {"path":"openapi.yaml","metaData":{}}
 
 [config.relations.apiDefinition.metaData]
