@@ -317,15 +317,19 @@ components:
                 total:
                     type: integer
                     description: Total number of items.
+                    example: 42
                 pages:
                     type: integer
                     description: Total number of pages.
+                    example: 97
                 current:
                     type: integer
                     description: Current page number.
+                    example: 1
                 pageSize:
                     type: integer
                     description: Number of items per page.
+                    example: 25
 
         TaskListResponse:
             type: object
