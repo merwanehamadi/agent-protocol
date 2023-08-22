@@ -10,6 +10,57 @@
 			"name": "Basic User Experience",
 			"item": [
 				{
+					"name": "Get API Schema",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a00731a-6845-4b5f-acf2-c07b27c91d94",
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"pm.collectionVariables.set('coll-schema', JSON.stringify(jsonData));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4ab824d4-1382-42f0-baa7-979b4b00f913",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "{{env-apiKey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://raw.githubusercontent.com/merwanehamadi/agent-protocol/0.4/postman/schemas/openapi.json",
+							"protocol": "https",
+							"host": [
+								"raw",
+								"githubusercontent",
+								"com"
+							],
+							"path": [
+								"merwanehamadi",
+								"agent-protocol",
+								"0.4",
+								"postman",
+								"schemas",
+								"openapi.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Give me all the tasks",
 					"event": [
 						{
@@ -29,6 +80,38 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "54f79ede-9a86-404e-865d-63ee18f9e7d4",
+								"exec": [
+									"// Get the schema from the collection variable",
+									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
+									"// Parse the schema if it's a string",
+									"const api = JSON.parse(schemaString);",
+									"",
+									"console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()]);",
+									"",
+									"",
+									"",
+									"// Retrieve the correct schema for the given method and path",
+									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
+									"",
+									"// Initialize AJV",
+									"const ajv = new Ajv();",
+									"const validate = ajv.compile(schema);",
+									"",
+									"// Validate the request",
+									"const valid = validate(request);",
+									"if (!valid) {",
+									"    console.error('Request is invalid:', validate.errors);",
+									"} else {",
+									"    console.log('Request is valid');",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -78,10 +161,15 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/agent/tasks",
+									"raw": "http://0.0.0.0:8000/agent/tasks",
+									"protocol": "http",
 									"host": [
-										"{{url}}"
+										"0",
+										"0",
+										"0",
+										"0"
 									],
+									"port": "8000",
 									"path": [
 										"agent",
 										"tasks"
@@ -198,6 +286,32 @@
 									"",
 									"    pm.expect(responseData.artifacts).to.be.an('array');",
 									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5bdf268d-fed0-4f5d-bc7c-3730723fe7cf",
+								"exec": [
+									"// Get the schema from the collection variable",
+									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
+									"// Parse the schema if it's a string",
+									"const api = JSON.parse(schemaString);",
+									"",
+									"console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema);",
+									"",
+									"",
+									"// Retrieve the correct schema for the given method and path",
+									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
+									"console.log(schema)",
+									"// Initialize AJV",
+									"pm.test(\"Validate JSON Schema\", () => {",
+									"    pm.request.to.have.jsonSchema(schema);",
+									"});",
+									"",
 									""
 								],
 								"type": "text/javascript"
@@ -2927,6 +3041,13 @@
 				}
 			],
 			"id": "2acad219-3aae-4d19-ba5d-2084cfd48bac"
+		}
+	],
+	"variable": [
+		{
+			"id": "25777c75-4efd-4419-9f37-d12d4facb61f",
+			"key": "coll-schema",
+			"value": ""
 		}
 	]
 }

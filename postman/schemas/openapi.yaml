@@ -295,6 +295,8 @@ components:
 
         TaskRequestBody:
             type: object
+            required:
+                - "input"
             description: Body of the task request.
             properties:
                 input:

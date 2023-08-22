@@ -10,6 +10,7 @@ id = cb0ce559-e9f8-4776-b361-585a1090dbdf
 [config.relations.collections]
 rootDirectory = postman/collections
 files[] = {"id":"28411126-d0e392f7-0d01-4aa6-bb5d-aee165516aef","path":"Agent Protocol - REST.json","metaData":{}}
+files[] = {"id":"28411126-a0fe93d1-3a0e-4c82-a062-7a29578dcc5f","path":"Contract Test Generator.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
