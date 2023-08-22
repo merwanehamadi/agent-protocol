@@ -24,6 +24,9 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "required": [
+                  "input"
+                ],
                 "description": "Body of the task request.",
                 "properties": {
                   "input": {
@@ -50,6 +53,9 @@
                   "allOf": [
                     {
                       "type": "object",
+                      "required": [
+                        "input"
+                      ],
                       "description": "Body of the task request.",
                       "properties": {
                         "input": {
@@ -178,6 +184,9 @@
                   "allOf": [
                     {
                       "type": "object",
+                      "required": [
+                        "input"
+                      ],
                       "description": "Body of the task request.",
                       "properties": {
                         "input": {
@@ -863,6 +872,9 @@
       },
       "TaskRequestBody": {
         "type": "object",
+        "required": [
+          "input"
+        ],
         "description": "Body of the task request.",
         "properties": {
           "input": {
@@ -881,6 +893,9 @@
         "allOf": [
           {
             "type": "object",
+            "required": [
+              "input"
+            ],
             "description": "Body of the task request.",
             "properties": {
               "input": {
