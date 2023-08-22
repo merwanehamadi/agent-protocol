@@ -24,10 +24,10 @@
             "application/json": {
               "schema": {
                 "type": "object",
+                "description": "Body of the task request.",
                 "required": [
                   "input"
                 ],
-                "description": "Body of the task request.",
                 "properties": {
                   "input": {
                     "description": "Input prompt for the task.",
@@ -53,10 +53,10 @@
                   "allOf": [
                     {
                       "type": "object",
+                      "description": "Body of the task request.",
                       "required": [
                         "input"
                       ],
-                      "description": "Body of the task request.",
                       "properties": {
                         "input": {
                           "description": "Input prompt for the task.",
@@ -184,10 +184,10 @@
                   "allOf": [
                     {
                       "type": "object",
+                      "description": "Body of the task request.",
                       "required": [
                         "input"
                       ],
-                      "description": "Body of the task request.",
                       "properties": {
                         "input": {
                           "description": "Input prompt for the task.",
@@ -810,11 +810,6 @@
   },
   "components": {
     "schemas": {
-      "TaskInput": {
-        "type": "object",
-        "description": "Input parameters for the task. Any value is allowed.",
-        "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
-      },
       "Artifact": {
         "type": "object",
         "required": [
@@ -872,10 +867,10 @@
       },
       "TaskRequestBody": {
         "type": "object",
+        "description": "Body of the task request.",
         "required": [
           "input"
         ],
-        "description": "Body of the task request.",
         "properties": {
           "input": {
             "description": "Input prompt for the task.",
@@ -893,10 +888,10 @@
         "allOf": [
           {
             "type": "object",
+            "description": "Body of the task request.",
             "required": [
               "input"
             ],
-            "description": "Body of the task request.",
             "properties": {
               "input": {
                 "description": "Input prompt for the task.",
