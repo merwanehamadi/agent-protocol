@@ -1,13 +1,21 @@
 openapi: 3.0.1
 servers:
-  - url: 'http://0.0.0.0:8000'
-    description: Test server
+    - url: "http://0.0.0.0:8000"
+      description: Test server
 info:
     title: Agent Protocol
     description: Specification of the API protocol for communication with an agent.
     version: "v0.3"
 
 paths:
+    /heartbeat:
+        get:
+            summary: Check if the server is running.
+            tags: [server]
+            operationId: checkServerStatus
+            responses:
+                200:
+                    description: Server is running.
     /agent/tasks:
         post:
             summary: Creates a task for the agent.
@@ -31,17 +39,42 @@ paths:
             summary: List all tasks that have been created for the agent.
             tags: [agent]
             operationId: listAgentTasksIDs
+            parameters:
+                - name: page
+                  in: query
+                  description: Page number
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 1
+                      minimum: 1
+                - name: pageSize
+                  in: query
+                  description: Number of items per page
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 10
+                      minimum: 1
             responses:
                 200:
-                    description: Returned list of agent's task IDs.
+                    description: Returned list of agent's tasks.
+                    headers:
+                        content-length:
+                            description: The length of the response body in octets (8-bit bytes)
+                            schema:
+                                type: integer
+                        date:
+                            description: The date and time at which the message was originated
+                            schema:
+                                type: string
+                                format: date-time
                     content:
                         application/json:
                             schema:
-                                type: array
-                                default: []
-                                description: A list of task IDs
-                                items:
-                                    type: string
+                                $ref: "#/components/schemas/TaskListResponse"
                 default:
                     description: Internal Server Error
 
@@ -81,17 +114,31 @@ paths:
                   required: true
                   schema:
                       type: string
+                - name: page
+                  in: query
+                  description: Page number
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 1
+                      minimum: 1
+                - name: pageSize
+                  in: query
+                  description: Number of items per page
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 10
+                      minimum: 1
             responses:
                 200:
-                    description: Returned list of agent's step IDs for the specified task.
+                    description: Returned list of agent's steps for the specified task.
                     content:
                         application/json:
                             schema:
-                                type: array
-                                default: []
-                                description: A list of step IDs for the task
-                                items:
-                                    type: string
+                                $ref: "#/components/schemas/TaskStepsListResponse"
                 404:
                     description: Task not found.
                 default:
@@ -166,17 +213,31 @@ paths:
                   required: true
                   schema:
                       type: string
+                - name: page
+                  in: query
+                  description: Page number
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 1
+                      minimum: 1
+                - name: pageSize
+                  in: query
+                  description: Number of items per page
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      default: 10
+                      minimum: 1
             responses:
                 200:
-                    description: Returned the content of the artifact.
+                    description: Returned the list of artifacts for the task.
                     content:
                         application/json:
                             schema:
-                                type: array
-                                default: []
-                                description: A list of artifacts for the task
-                                items:
-                                    $ref: "#/components/schemas/Artifact"
+                                $ref: "#/components/schemas/TaskArtifactsListResponse"
                 404:
                     description: Task not found.
                 default:
@@ -185,11 +246,6 @@ paths:
             summary: Upload an artifact for the specified task.
             tags: [agent]
             operationId: uploadAgentTaskArtifacts
-            requestBody:
-                content:
-                    multipart/form-data:
-                        schema:
-                            $ref: "#/components/schemas/ArtifactUpload"
             parameters:
                 - name: task_id
                   in: path
@@ -197,6 +253,19 @@ paths:
                   required: true
                   schema:
                       type: string
+            requestBody:
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: File to upload.
+                                uri:
+                                    type: string
+                                    description: URI of the artifact.
             responses:
                 200:
                     description: Returned the content of the artifact.
@@ -242,66 +311,98 @@ paths:
 
 components:
     schemas:
+        Pagination:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    description: Total number of items.
+                pages:
+                    type: integer
+                    description: Total number of pages.
+                current:
+                    type: integer
+                    description: Current page number.
+                pageSize:
+                    type: integer
+                    description: Number of items per page.
+
+        TaskListResponse:
+            type: object
+            properties:
+                tasks:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Task"
+                pagination:
+                    $ref: "#/components/schemas/Pagination"
+
+        TaskStepsListResponse:
+            type: object
+            properties:
+                steps:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Step"
+                pagination:
+                    $ref: "#/components/schemas/Pagination"
+
+        TaskArtifactsListResponse:
+            type: object
+            properties:
+                artifacts:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/Artifact"
+                pagination:
+                    $ref: "#/components/schemas/Pagination"
+
+        TaskInput:
+            description: Input parameters for the task. Any value is allowed.
+            example: "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
+
         Artifact:
             type: object
             required:
                 - "artifact_id"
                 - "file_name"
-            description: Artifact that the task has produced.
+            description: An Artifact either created by or submitted to the agent.
             properties:
                 artifact_id:
+                    type: string
                     description: ID of the artifact.
-                    type: string
-                    example: "b225e278-8b4c-4f99-a696-8facf19f0e56"
+                    example: b225e278-8b4c-4f99-a696-8facf19f0e56
                 file_name:
+                    type: string
                     description: Filename of the artifact.
+                    example: main.py
+                agent_created:
+                    type: boolean
+                    description: Whether the artifact has been created by the agent.
+                    example: false
+                uri:
                     type: string
-                    example: "main.py"
-                relative_path:
-                    description: Relative path of the artifact in the agent's workspace.
-                    type: string
-                    example: "python/code/"
-
-        ArtifactUpload:
-            type: object
-            required:
-                - "file"
-            description: Artifact to upload to the agent.
-            properties:
-                file:
-                    description: File to upload.
-                    type: string
-                    format: binary
-                    example: "path/to/your/file.txt"
-                relative_path:
-                    description: Relative path of the artifact in the agent's workspace.
-                    type: string
-                    example: "python/code"
+                    description: URI of the artifact.
+                    example: file://home/bob/workspace/bucket/main.py
 
         StepInput:
-            type: object # Declared type
             description: Input parameters for the task step. Any value is allowed.
             example: "{\n\"file_to_refactor\": \"models.py\"\n}"
 
         StepOutput:
-            type: object
             description: Output that the task step has produced. Any value is allowed.
             example: "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
 
         TaskRequestBody:
             type: object
             description: Body of the task request.
-            required:
-              - "input"
             properties:
                 input:
                     description: Input prompt for the task.
                     type: string
                     example: "Write the words you receive to the file 'output.txt'."
                 additional_input:
-                  type: object
-                  description: Input parameters for the task. Any value is allowed.
-                  example: "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
+                    $ref: "#/components/schemas/TaskInput"
 
         Task:
             allOf:
@@ -310,7 +411,6 @@ components:
                   description: Definition of an agent task.
                   required:
                       - "task_id"
-                      - "artifacts"
                   properties:
                       task_id:
                           description: The ID of the task.
@@ -347,7 +447,6 @@ components:
                       - "step_id"
                       - "task_id"
                       - "status"
-                      - "artifacts"
                   properties:
                       task_id:
                           description: The ID of the task this step belongs to.
@@ -364,7 +463,6 @@ components:
                       status:
                           description: The status of the task step.
                           type: string
-                          example: "created" # Added example
                           enum:
                               - "created"
                               - "running"
@@ -382,7 +480,6 @@ components:
                           items:
                               $ref: "#/components/schemas/Artifact"
                       is_last:
-                          description: Indicates whether this is the last step in the task. # Updated description
+                          description: Whether this is the last step in the task.
                           type: boolean
                           default: false
-                          example: false

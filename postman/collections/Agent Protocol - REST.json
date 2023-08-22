@@ -89,29 +89,29 @@
 							"script": {
 								"id": "54f79ede-9a86-404e-865d-63ee18f9e7d4",
 								"exec": [
-									"// Get the schema from the collection variable",
-									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
-									"// Parse the schema if it's a string",
-									"const api = JSON.parse(schemaString);",
+									"// // Get the schema from the collection variable",
+									"// const schemaString = pm.collectionVariables.get(\"coll-schema\");",
+									"// // Parse the schema if it's a string",
+									"// const api = JSON.parse(schemaString);",
 									"",
-									"console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()]);",
+									"// console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()]);",
 									"",
 									"",
 									"",
-									"// Retrieve the correct schema for the given method and path",
-									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
+									"// // Retrieve the correct schema for the given method and path",
+									"// const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
 									"",
-									"// Initialize AJV",
-									"const ajv = new Ajv();",
-									"const validate = ajv.compile(schema);",
+									"// // Initialize AJV",
+									"// const ajv = new Ajv();",
+									"// const validate = ajv.compile(schema);",
 									"",
-									"// Validate the request",
-									"const valid = validate(request);",
-									"if (!valid) {",
-									"    console.error('Request is invalid:', validate.errors);",
-									"} else {",
-									"    console.log('Request is valid');",
-									"}"
+									"// // Validate the request",
+									"// const valid = validate(request);",
+									"// if (!valid) {",
+									"//     console.error('Request is invalid:', validate.errors);",
+									"// } else {",
+									"//     console.log('Request is valid');",
+									"// }"
 								],
 								"type": "text/javascript"
 							}
@@ -2046,6 +2046,7 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "66f06529-a1e4-4848-8edb-2a7eed07ee15",
 								"exec": [
 									"Object.keys(pm.globals.toObject()).forEach((key) => {",
 									"    pm.globals.unset(key);",
@@ -2058,14 +2059,14 @@
 									"pm.globals.set(\"taskId\", jsonData.task_id);",
 									"pm.globals.set(\"taskInput\", JSON.parse(pm.request.body.raw).input);"
 								],
-								"type": "text/javascript",
-								"id": "66f06529-a1e4-4848-8edb-2a7eed07ee15"
+								"type": "text/javascript"
 							}
 						}
 					],
 					"id": "3a07b486-d8aa-4f8e-9a7c-9d4e06eb9279",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
 					},
 					"request": {
 						"method": "POST",
@@ -2073,6 +2074,11 @@
 							{
 								"key": "mock-match",
 								"value": "34"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -2199,6 +2205,43 @@
 				},
 				{
 					"name": "Get the task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "073b65cd-79cf-439a-914a-031794b25ab6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is application/json\", function () {\r",
+									"    var contentType = pm.response.headers.get('Content-Type');\r",
+									"    pm.expect(contentType).to.include('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has all required properties\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('task_id');\r",
+									"    pm.expect(jsonData).to.have.property('input');\r",
+									"    pm.expect(jsonData).to.have.property('additional_input');\r",
+									"    pm.expect(jsonData).to.have.property('artifacts');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "4d6ab896-4b3c-433d-8015-422a8fc6310f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -2331,18 +2374,45 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "66f06529-a1e4-4848-8edb-2a7eed07ee15",
+								"id": "c6997be7-94bf-4404-b943-f0cb86a79b0d",
 								"exec": [
-									"Object.keys(pm.globals.toObject()).forEach((key) => {",
-									"    pm.globals.unset(key);",
-									"});",
-									"Object.keys(pm.collectionVariables.toObject()).forEach((key) => {",
-									"    pm.collectionVariables.unset(key);",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"var jsonData = pm.response.json();",
-									"pm.globals.set(\"taskId\", jsonData.task_id);",
-									"pm.globals.set(\"taskInput\", JSON.parse(pm.request.body.raw).input);"
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    var contentType = pm.response.headers.get('Content-Type');",
+									"    pm.expect(contentType).to.include('application/json');",
+									"});",
+									"",
+									"pm.test(\"Response has all required properties\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('items');",
+									"    pm.expect(jsonData).to.have.property('pagination');",
+									"});",
+									"",
+									"pm.test(\"Items is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.items).to.be.an('array');",
+									"});",
+									"",
+									"pm.test(\"Each item has required properties\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.items.forEach(function(item) {",
+									"        pm.expect(item).to.have.property('task_id');",
+									"        pm.expect(item).to.have.property('input');",
+									"        pm.expect(item).to.have.property('additional_input');",
+									"        pm.expect(item).to.have.property('artifacts');",
+									"    });",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -2378,6 +2448,369 @@
 					"response": [
 						{
 							"id": "ee20dcaf-c288-4871-8262-f0b38b39e3c0",
+							"name": "mock response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/agent/tasks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"agent",
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Aug 2023 23:23:05 GMT",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"enabled": true
+								},
+								{
+									"key": "Content-Length",
+									"value": "28",
+									"enabled": true
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"enabled": true
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=daef761e243c402b",
+									"enabled": true
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=2c0bd88502372360",
+									"enabled": true
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "115",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1691968334",
+									"enabled": true
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\"",
+									"enabled": true
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\",\n    \"additional_input\": null,\n    \"task_id\": \"121\",\n    \"artifacts\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a second task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66f06529-a1e4-4848-8edb-2a7eed07ee15",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"lastTaskId\", jsonData.task_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "eeb510e2-03fa-41f0-aad7-7ab458a19ade",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "mock-match",
+								"value": "34"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/agent/tasks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"agent",
+								"tasks"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "e9ee2587-9884-4a82-b074-d914164d9bfa",
+							"name": "mock response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "mock-match",
+										"value": "34"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/agent/tasks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"agent",
+										"tasks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 13 Aug 2023 23:23:05 GMT",
+									"enabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"enabled": true
+								},
+								{
+									"key": "Content-Length",
+									"value": "28",
+									"enabled": true
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"enabled": true
+								},
+								{
+									"key": "x-srv-trace",
+									"value": "v=1;t=daef761e243c402b",
+									"enabled": true
+								},
+								{
+									"key": "x-srv-span",
+									"value": "v=1;s=2c0bd88502372360",
+									"enabled": true
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "120",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "115",
+									"enabled": true
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1691968334",
+									"enabled": true
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"96-S/5iQ2y1qqIInh5BwoPc+chvDJU\"",
+									"enabled": true
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding",
+									"enabled": true
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\",\n    \"additional_input\": null,\n    \"task_id\": \"fde559f8-3ab8-11ee-be56-0242ac120002\",\n    \"artifacts\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all the tasks Pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66f06529-a1e4-4848-8edb-2a7eed07ee15",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    var contentType = pm.response.headers.get('Content-Type');",
+									"    pm.expect(contentType).to.include('application/json');",
+									"});",
+									"",
+									"pm.test(\"Response has all required properties\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('items');",
+									"    pm.expect(jsonData).to.have.property('pagination');",
+									"});",
+									"",
+									"pm.test(\"Pagination is set\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.pagination).to.be.an('object');",
+									"});",
+									"",
+									"pm.test(\"Page size is 1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.pagination.pageSize).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"Items is an array with one item\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.items).to.be.an('array').that.has.lengthOf(1);",
+									"});",
+									"",
+									"pm.test(\"Each item has required properties\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    jsonData.items.forEach(function(item) {",
+									"        pm.expect(item).to.have.property('task_id');",
+									"        pm.expect(item).to.have.property('input');",
+									"        pm.expect(item).to.have.property('additional_input');",
+									"        pm.expect(item).to.have.property('artifacts');",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response length respects pageSize\", function() {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.items.length).to.be.at.most(1);",
+									"});",
+									"",
+									"if (jsonData.items && jsonData.items.length > 0) {",
+									"    if (pm.variables.has(\"lastTaskId\") && pm.variables.get(\"page\") > 1) {",
+									"        pm.test(\"First task of page \" + pm.variables.get(\"page\") + \" is not the last task of page \" + (pm.variables.get(\"page\") - 1), function() {",
+									"            var jsonData = pm.response.json();",
+									"            pm.expect(jsonData.items[0].task_id).to.not.equal(pm.variables.get(\"lastTaskId\"));",
+									"        });",
+									"    }",
+									"    if (jsonData.items.length > 0) {",
+									"        pm.variables.set(\"lastTaskId\", jsonData.items[jsonData.items.length - 1].task_id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "65676ad0-f166-41fa-a20d-046c3fa24af7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/agent/tasks?pageSize=1&page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"agent",
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "242d4190-34f5-4614-8d8a-19da3785a621",
 							"name": "mock response",
 							"originalRequest": {
 								"method": "GET",
@@ -3040,13 +3473,6 @@
 				}
 			],
 			"id": "2acad219-3aae-4d19-ba5d-2084cfd48bac"
-		}
-	],
-	"variable": [
-		{
-			"id": "16920c1b-9bac-4dca-a582-3c3bfc537eef",
-			"key": "coll-schema",
-			"value": ""
 		}
 	]
 }
