@@ -274,19 +274,23 @@
                       "properties": {
                         "total": {
                           "type": "integer",
-                          "description": "Total number of items."
+                          "description": "Total number of items.",
+                          "example": 42
                         },
                         "pages": {
                           "type": "integer",
-                          "description": "Total number of pages."
+                          "description": "Total number of pages.",
+                          "example": 97
                         },
                         "current": {
                           "type": "integer",
-                          "description": "Current page number."
+                          "description": "Current page number.",
+                          "example": 1
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -568,19 +572,23 @@
                       "properties": {
                         "total": {
                           "type": "integer",
-                          "description": "Total number of items."
+                          "description": "Total number of items.",
+                          "example": 42
                         },
                         "pages": {
                           "type": "integer",
-                          "description": "Total number of pages."
+                          "description": "Total number of pages.",
+                          "example": 97
                         },
                         "current": {
                           "type": "integer",
-                          "description": "Current page number."
+                          "description": "Current page number.",
+                          "example": 1
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -988,19 +996,23 @@
                       "properties": {
                         "total": {
                           "type": "integer",
-                          "description": "Total number of items."
+                          "description": "Total number of items.",
+                          "example": 42
                         },
                         "pages": {
                           "type": "integer",
-                          "description": "Total number of pages."
+                          "description": "Total number of pages.",
+                          "example": 97
                         },
                         "current": {
                           "type": "integer",
-                          "description": "Current page number."
+                          "description": "Current page number.",
+                          "example": 1
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -1157,19 +1169,23 @@
         "properties": {
           "total": {
             "type": "integer",
-            "description": "Total number of items."
+            "description": "Total number of items.",
+            "example": 42
           },
           "pages": {
             "type": "integer",
-            "description": "Total number of pages."
+            "description": "Total number of pages.",
+            "example": 97
           },
           "current": {
             "type": "integer",
-            "description": "Current page number."
+            "description": "Current page number.",
+            "example": 1
           },
           "pageSize": {
             "type": "integer",
-            "description": "Number of items per page."
+            "description": "Number of items per page.",
+            "example": 25
           }
         }
       },
@@ -1256,19 +1272,23 @@
             "properties": {
               "total": {
                 "type": "integer",
-                "description": "Total number of items."
+                "description": "Total number of items.",
+                "example": 42
               },
               "pages": {
                 "type": "integer",
-                "description": "Total number of pages."
+                "description": "Total number of pages.",
+                "example": 97
               },
               "current": {
                 "type": "integer",
-                "description": "Current page number."
+                "description": "Current page number.",
+                "example": 1
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
@@ -1387,19 +1407,23 @@
             "properties": {
               "total": {
                 "type": "integer",
-                "description": "Total number of items."
+                "description": "Total number of items.",
+                "example": 42
               },
               "pages": {
                 "type": "integer",
-                "description": "Total number of pages."
+                "description": "Total number of pages.",
+                "example": 97
               },
               "current": {
                 "type": "integer",
-                "description": "Current page number."
+                "description": "Current page number.",
+                "example": 1
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
@@ -1446,19 +1470,23 @@
             "properties": {
               "total": {
                 "type": "integer",
-                "description": "Total number of items."
+                "description": "Total number of items.",
+                "example": 42
               },
               "pages": {
                 "type": "integer",
-                "description": "Total number of pages."
+                "description": "Total number of pages.",
+                "example": 97
               },
               "current": {
                 "type": "integer",
-                "description": "Current page number."
+                "description": "Current page number.",
+                "example": 1
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
