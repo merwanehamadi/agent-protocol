@@ -250,9 +250,34 @@
 					"name": "Create a new task",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"id": "64d1674b-7109-4317-9dd2-2a73b2272dbe",
+								"exec": [
+									"// Get the schema from the collection variable",
+									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
+									"// Parse the schema if it's a string",
+									"const api = JSON.parse(schemaString);",
+									"",
+									"console.log(pm.request)",
+									"",
+									"// Retrieve the correct schema for the given method and path",
+									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
+									"console.log(schema)",
+									"// Initialize AJV",
+									"pm.test(\"Validate JSON Schema\", () => {",
+									"    pm.request.to.have.jsonSchema(schema);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
-								"id": "fea7645b-7f05-4243-aa87-0391da566054",
+								"id": "69535371-2a85-46f1-8af5-750bc1ee5170",
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"pm.globals.set(\"taskId\", jsonData.task_id);",
@@ -286,32 +311,6 @@
 									"",
 									"    pm.expect(responseData.artifacts).to.be.an('array');",
 									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "5bdf268d-fed0-4f5d-bc7c-3730723fe7cf",
-								"exec": [
-									"// Get the schema from the collection variable",
-									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
-									"// Parse the schema if it's a string",
-									"const api = JSON.parse(schemaString);",
-									"",
-									"console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema);",
-									"",
-									"",
-									"// Retrieve the correct schema for the given method and path",
-									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
-									"console.log(schema)",
-									"// Initialize AJV",
-									"pm.test(\"Validate JSON Schema\", () => {",
-									"    pm.request.to.have.jsonSchema(schema);",
-									"});",
-									"",
 									""
 								],
 								"type": "text/javascript"
@@ -3045,7 +3044,7 @@
 	],
 	"variable": [
 		{
-			"id": "25777c75-4efd-4419-9f37-d12d4facb61f",
+			"id": "16920c1b-9bac-4dca-a582-3c3bfc537eef",
 			"key": "coll-schema",
 			"value": ""
 		}
