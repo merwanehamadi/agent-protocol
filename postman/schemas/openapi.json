@@ -480,6 +480,9 @@
                           {
                             "type": "object",
                             "description": "Body of the task request.",
+                            "required": [
+                              "input"
+                            ],
                             "properties": {
                               "input": {
                                 "description": "Input prompt for the step.",
@@ -645,6 +648,9 @@
               "schema": {
                 "type": "object",
                 "description": "Body of the task request.",
+                "required": [
+                  "input"
+                ],
                 "properties": {
                   "input": {
                     "description": "Input prompt for the step.",
@@ -671,6 +677,9 @@
                     {
                       "type": "object",
                       "description": "Body of the task request.",
+                      "required": [
+                        "input"
+                      ],
                       "properties": {
                         "input": {
                           "description": "Input prompt for the step.",
@@ -824,6 +833,9 @@
                     {
                       "type": "object",
                       "description": "Body of the task request.",
+                      "required": [
+                        "input"
+                      ],
                       "properties": {
                         "input": {
                           "description": "Input prompt for the step.",
@@ -1347,6 +1359,9 @@
                 {
                   "type": "object",
                   "description": "Body of the task request.",
+                  "required": [
+                    "input"
+                  ],
                   "properties": {
                     "input": {
                       "description": "Input prompt for the step.",
@@ -1686,6 +1701,9 @@
       "StepRequestBody": {
         "type": "object",
         "description": "Body of the task request.",
+        "required": [
+          "input"
+        ],
         "properties": {
           "input": {
             "description": "Input prompt for the step.",
@@ -1704,6 +1722,9 @@
           {
             "type": "object",
             "description": "Body of the task request.",
+            "required": [
+              "input"
+            ],
             "properties": {
               "input": {
                 "description": "Input prompt for the step.",
