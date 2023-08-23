@@ -42,7 +42,7 @@ paths:
                       format: int32
                       default: 1
                       minimum: 1
-                - name: pageSize
+                - name: page_size
                   in: query
                   description: Number of items per page
                   required: false
@@ -120,7 +120,7 @@ paths:
                       format: int32
                       default: 1
                       minimum: 1
-                - name: pageSize
+                - name: page_size
                   in: query
                   description: Number of items per page
                   required: false
@@ -225,7 +225,7 @@ paths:
                       format: int32
                       default: 1
                       minimum: 1
-                - name: pageSize
+                - name: page_size
                   in: query
                   description: Number of items per page
                   required: false
@@ -321,19 +321,19 @@ components:
         Pagination:
             type: object
             properties:
-                total:
+                total_items:
                     type: integer
                     description: Total number of items.
                     example: 42
-                pages:
+                total_pages:
                     type: integer
                     description: Total number of pages.
                     example: 97
-                current:
+                current_page:
                     type: integer
-                    description: Current page number.
+                    description: Current_page page number.
                     example: 1
-                pageSize:
+                page_size:
                     type: integer
                     description: Number of items per page.
                     example: 25
