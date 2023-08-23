@@ -47,6 +47,7 @@
                   },
                   "additional_input": {
                     "description": "Input parameters for the task. Any value is allowed.",
+                    "type": "object",
                     "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
                   }
                 }
@@ -72,6 +73,7 @@
                         },
                         "additional_input": {
                           "description": "Input parameters for the task. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
                         }
                       }
@@ -209,6 +211,7 @@
                               },
                               "additional_input": {
                                 "description": "Input parameters for the task. Any value is allowed.",
+                                "type": "object",
                                 "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
                               }
                             }
@@ -289,8 +292,7 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page.",
-                          "example": 25
+                          "description": "Number of items per page."
                         }
                       }
                     }
@@ -341,6 +343,7 @@
                         },
                         "additional_input": {
                           "description": "Input parameters for the task. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
                         }
                       }
@@ -477,6 +480,7 @@
                               },
                               "additional_input": {
                                 "description": "Input parameters for the task step. Any value is allowed.",
+                                "type": "object",
                                 "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
                               }
                             }
@@ -507,7 +511,6 @@
                               "status": {
                                 "description": "The status of the task step.",
                                 "type": "string",
-                                "example": "created",
                                 "enum": [
                                   "created",
                                   "running",
@@ -521,6 +524,7 @@
                               },
                               "additional_output": {
                                 "description": "Output that the task step has produced. Any value is allowed.",
+                                "type": "object",
                                 "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
                               },
                               "artifacts": {
@@ -561,8 +565,7 @@
                               "is_last": {
                                 "description": "Whether this is the last step in the task.",
                                 "type": "boolean",
-                                "default": false,
-                                "example": true
+                                "default": false
                               }
                             }
                           }
@@ -589,8 +592,7 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page.",
-                          "example": 25
+                          "description": "Number of items per page."
                         }
                       }
                     }
@@ -638,6 +640,7 @@
                   },
                   "additional_input": {
                     "description": "Input parameters for the task step. Any value is allowed.",
+                    "type": "object",
                     "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
                   }
                 }
@@ -663,6 +666,7 @@
                         },
                         "additional_input": {
                           "description": "Input parameters for the task step. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
                         }
                       }
@@ -693,7 +697,6 @@
                         "status": {
                           "description": "The status of the task step.",
                           "type": "string",
-                          "example": "created",
                           "enum": [
                             "created",
                             "running",
@@ -707,6 +710,7 @@
                         },
                         "additional_output": {
                           "description": "Output that the task step has produced. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
                         },
                         "artifacts": {
@@ -747,8 +751,7 @@
                         "is_last": {
                           "description": "Whether this is the last step in the task.",
                           "type": "boolean",
-                          "default": false,
-                          "example": true
+                          "default": false
                         }
                       }
                     }
@@ -811,6 +814,7 @@
                         },
                         "additional_input": {
                           "description": "Input parameters for the task step. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
                         }
                       }
@@ -841,7 +845,6 @@
                         "status": {
                           "description": "The status of the task step.",
                           "type": "string",
-                          "example": "created",
                           "enum": [
                             "created",
                             "running",
@@ -855,6 +858,7 @@
                         },
                         "additional_output": {
                           "description": "Output that the task step has produced. Any value is allowed.",
+                          "type": "object",
                           "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
                         },
                         "artifacts": {
@@ -895,8 +899,7 @@
                         "is_last": {
                           "description": "Whether this is the last step in the task.",
                           "type": "boolean",
-                          "default": false,
-                          "example": true
+                          "default": false
                         }
                       }
                     }
@@ -1017,8 +1020,7 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page.",
-                          "example": 25
+                          "description": "Number of items per page."
                         }
                       }
                     }
@@ -1190,8 +1192,7 @@
           },
           "pageSize": {
             "type": "integer",
-            "description": "Number of items per page.",
-            "example": 25
+            "description": "Number of items per page."
           }
         }
       },
@@ -1213,6 +1214,7 @@
                     },
                     "additional_input": {
                       "description": "Input parameters for the task. Any value is allowed.",
+                      "type": "object",
                       "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
                     }
                   }
@@ -1293,8 +1295,7 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page.",
-                "example": 25
+                "description": "Number of items per page."
               }
             }
           }
@@ -1318,6 +1319,7 @@
                     },
                     "additional_input": {
                       "description": "Input parameters for the task step. Any value is allowed.",
+                      "type": "object",
                       "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
                     }
                   }
@@ -1348,7 +1350,6 @@
                     "status": {
                       "description": "The status of the task step.",
                       "type": "string",
-                      "example": "created",
                       "enum": [
                         "created",
                         "running",
@@ -1362,6 +1363,7 @@
                     },
                     "additional_output": {
                       "description": "Output that the task step has produced. Any value is allowed.",
+                      "type": "object",
                       "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
                     },
                     "artifacts": {
@@ -1402,8 +1404,7 @@
                     "is_last": {
                       "description": "Whether this is the last step in the task.",
                       "type": "boolean",
-                      "default": false,
-                      "example": true
+                      "default": false
                     }
                   }
                 }
@@ -1430,8 +1431,7 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page.",
-                "example": 25
+                "description": "Number of items per page."
               }
             }
           }
@@ -1493,8 +1493,7 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page.",
-                "example": 25
+                "description": "Number of items per page."
               }
             }
           }
@@ -1502,6 +1501,7 @@
       },
       "TaskInput": {
         "description": "Input parameters for the task. Any value is allowed.",
+        "type": "object",
         "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
       },
       "Artifact": {
@@ -1536,10 +1536,12 @@
       },
       "StepInput": {
         "description": "Input parameters for the task step. Any value is allowed.",
+        "type": "object",
         "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
       },
       "StepOutput": {
         "description": "Output that the task step has produced. Any value is allowed.",
+        "type": "object",
         "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
       },
       "TaskRequestBody": {
@@ -1553,6 +1555,7 @@
           },
           "additional_input": {
             "description": "Input parameters for the task. Any value is allowed.",
+            "type": "object",
             "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
           }
         }
@@ -1570,6 +1573,7 @@
               },
               "additional_input": {
                 "description": "Input parameters for the task. Any value is allowed.",
+                "type": "object",
                 "example": "{\n\"debug\": false,\n\"mode\": \"benchmarks\"\n}"
               }
             }
@@ -1640,6 +1644,7 @@
           },
           "additional_input": {
             "description": "Input parameters for the task step. Any value is allowed.",
+            "type": "object",
             "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
           }
         }
@@ -1657,6 +1662,7 @@
               },
               "additional_input": {
                 "description": "Input parameters for the task step. Any value is allowed.",
+                "type": "object",
                 "example": "{\n\"file_to_refactor\": \"models.py\"\n}"
               }
             }
@@ -1687,7 +1693,6 @@
               "status": {
                 "description": "The status of the task step.",
                 "type": "string",
-                "example": "created",
                 "enum": [
                   "created",
                   "running",
@@ -1701,6 +1706,7 @@
               },
               "additional_output": {
                 "description": "Output that the task step has produced. Any value is allowed.",
+                "type": "object",
                 "example": "{\n\"tokens\": 7894,\n\"estimated_cost\": \"0,24$\"\n}"
               },
               "artifacts": {
@@ -1741,8 +1747,7 @@
               "is_last": {
                 "description": "Whether this is the last step in the task.",
                 "type": "boolean",
-                "default": false,
-                "example": true
+                "default": false
               }
             }
           }
