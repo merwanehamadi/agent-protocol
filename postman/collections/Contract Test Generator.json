@@ -1573,37 +1573,37 @@
 	],
 	"variable": [
 		{
-			"id": "02e513bc-90c7-49ff-9ed5-b58825348023",
+			"id": "71787194-9299-4f49-8ee7-162c13994677",
 			"key": "coll-apiIds",
 			"value": ""
 		},
 		{
-			"id": "eb0ff00b-c64d-46ff-89b5-6bc319ec9341",
+			"id": "3fe2420d-abec-49e1-aeda-fe11d79888bd",
 			"key": "coll-apiId",
 			"value": ""
 		},
 		{
-			"id": "82648bc0-1af0-4d04-81f0-70bba41ada7b",
+			"id": "991e0b30-4c1c-4d31-a41c-8c19b88b4156",
 			"key": "coll-versionId",
 			"value": ""
 		},
 		{
-			"id": "d15dc2d3-8b47-4321-9b8a-bfd97da6d43f",
+			"id": "58d2eb85-2b64-494b-b020-8d65be7920f7",
 			"key": "coll-schemaId",
 			"value": ""
 		},
 		{
-			"id": "6e372195-dd42-45f0-a035-a63c0c18ee10",
+			"id": "347ddb71-c9b6-45aa-8618-905676cdcffc",
 			"key": "coll-schema",
 			"value": ""
 		},
 		{
-			"id": "1f6a2b82-9b47-409a-9c41-b643fc825e97",
+			"id": "df6230d2-5e1b-4f8e-bb33-19b24c338219",
 			"key": "coll-baseUrl",
 			"value": ""
 		},
 		{
-			"id": "ce78b5fb-a3ee-46e1-936f-14463b636674",
+			"id": "30fc89db-5079-408f-8afc-d3ddaf0dce81",
 			"key": "coll-schemaTests",
 			"value": ""
 		}
