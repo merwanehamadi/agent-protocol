@@ -329,7 +329,6 @@ components:
                 pageSize:
                     type: integer
                     description: Number of items per page.
-                    example
 
         TaskListResponse:
             type: object
