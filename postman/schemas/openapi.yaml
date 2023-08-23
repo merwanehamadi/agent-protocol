@@ -5,17 +5,9 @@ servers:
 info:
     title: Agent Protocol
     description: Specification of the API protocol for communication with an agent.
-    version: "v0.3"
+    version: "v0.4"
 
 paths:
-    /heartbeat:
-        get:
-            summary: Check if the server is running.
-            tags: [server]
-            operationId: checkServerStatus
-            responses:
-                200:
-                    description: Server is running.
     /agent/tasks:
         post:
             summary: Creates a task for the agent.
@@ -386,6 +378,7 @@ components:
             required:
                 - "artifact_id"
                 - "file_name"
+                - "agent_created"
             description: An Artifact either created by or submitted to the agent.
             properties:
                 artifact_id:
