@@ -507,6 +507,7 @@
                               "status": {
                                 "description": "The status of the task step.",
                                 "type": "string",
+                                "example": "created",
                                 "enum": [
                                   "created",
                                   "running",
@@ -691,6 +692,7 @@
                         "status": {
                           "description": "The status of the task step.",
                           "type": "string",
+                          "example": "created",
                           "enum": [
                             "created",
                             "running",
@@ -837,6 +839,7 @@
                         "status": {
                           "description": "The status of the task step.",
                           "type": "string",
+                          "example": "created",
                           "enum": [
                             "created",
                             "running",
@@ -1342,6 +1345,7 @@
                     "status": {
                       "description": "The status of the task step.",
                       "type": "string",
+                      "example": "created",
                       "enum": [
                         "created",
                         "running",
@@ -1679,6 +1683,7 @@
               "status": {
                 "description": "The status of the task step.",
                 "type": "string",
+                "example": "created",
                 "enum": [
                   "created",
                   "running",
