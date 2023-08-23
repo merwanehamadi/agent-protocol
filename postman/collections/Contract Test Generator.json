@@ -1101,7 +1101,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fb04a781-66c8-4c08-876e-bded3751b02c",
+								"id": "f4b1656a-6abb-4eac-91a3-d56e2f7c15b1",
 								"exec": [
 									"const url = require('url');\r",
 									"\r",
@@ -1198,6 +1198,7 @@
 									"  let value = paramValue;\r",
 									"  if (typeof paramValue !== 'number' && typeof paramValue !== 'boolean') {\r",
 									"    let pathVariableRegex = /^{{\\$.*}}$/;\r",
+									"    console.log(\"paramValue:\" + paramValue)\r",
 									"    let matches = paramValue.match(pathVariableRegex);\r",
 									"\r",
 									"    if (matches && matches.length) {\r",
@@ -1258,7 +1259,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "76359d1b-ba73-471b-8859-822668aa5453",
+								"id": "0517cfd0-0453-4696-b6dd-7211d050f5fe",
 								"exec": [
 									"const schemaTests = JSON.parse(pm.collectionVariables.get('coll-schemaTests'));\r",
 									"if(schemaTests.length > 0){\r",
@@ -1572,37 +1573,37 @@
 	],
 	"variable": [
 		{
-			"id": "7c3e276a-6c3a-48b0-8f2a-55f8c3fbf2a3",
+			"id": "02e513bc-90c7-49ff-9ed5-b58825348023",
 			"key": "coll-apiIds",
 			"value": ""
 		},
 		{
-			"id": "018431cc-1258-4d74-9b9f-e8eac10f28db",
+			"id": "eb0ff00b-c64d-46ff-89b5-6bc319ec9341",
 			"key": "coll-apiId",
 			"value": ""
 		},
 		{
-			"id": "0ba82cb0-3b67-4093-a1a6-4c3aa51012e3",
+			"id": "82648bc0-1af0-4d04-81f0-70bba41ada7b",
 			"key": "coll-versionId",
 			"value": ""
 		},
 		{
-			"id": "6b25e95b-0550-42ea-aef2-024926e197c4",
+			"id": "d15dc2d3-8b47-4321-9b8a-bfd97da6d43f",
 			"key": "coll-schemaId",
 			"value": ""
 		},
 		{
-			"id": "acf22a61-e8f1-47ec-945d-d764d1b5e25c",
+			"id": "6e372195-dd42-45f0-a035-a63c0c18ee10",
 			"key": "coll-schema",
 			"value": ""
 		},
 		{
-			"id": "0bc4d51a-dc2c-4239-9baa-795f5105d022",
+			"id": "1f6a2b82-9b47-409a-9c41-b643fc825e97",
 			"key": "coll-baseUrl",
 			"value": ""
 		},
 		{
-			"id": "7023b405-7dac-4bf8-8155-9e2030f88b21",
+			"id": "ce78b5fb-a3ee-46e1-936f-14463b636674",
 			"key": "coll-schemaTests",
 			"value": ""
 		}
