@@ -418,6 +418,8 @@ components:
         TaskRequestBody:
             type: object
             description: Body of the task request.
+            required:
+                - input
             properties:
                 input:
                     description: Input prompt for the task.

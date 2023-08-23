@@ -89,29 +89,28 @@
 							"script": {
 								"id": "54f79ede-9a86-404e-865d-63ee18f9e7d4",
 								"exec": [
-									"// // Get the schema from the collection variable",
-									"// const schemaString = pm.collectionVariables.get(\"coll-schema\");",
-									"// // Parse the schema if it's a string",
-									"// const api = JSON.parse(schemaString);",
+									"//Get the schema from the collection variable",
+									"const schemaString = pm.collectionVariables.get(\"coll-schema\");",
+									"//Parse the schema if it's a string",
+									"const api = JSON.parse(schemaString);",
 									"",
-									"// console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()]);",
+									"console.log(api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()]);",
 									"",
 									"",
+									"//Retrieve the correct schema for the given method and path",
+									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
 									"",
-									"// // Retrieve the correct schema for the given method and path",
-									"// const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
+									"//Initialize AJV",
+									"const ajv = new Ajv();",
+									"const validate = ajv.compile(schema);",
 									"",
-									"// // Initialize AJV",
-									"// const ajv = new Ajv();",
-									"// const validate = ajv.compile(schema);",
-									"",
-									"// // Validate the request",
-									"// const valid = validate(request);",
-									"// if (!valid) {",
-									"//     console.error('Request is invalid:', validate.errors);",
-									"// } else {",
-									"//     console.log('Request is valid');",
-									"// }"
+									"//Validate the request",
+									"const valid = validate(request);",
+									"if (!valid) {",
+									"    console.error('Request is invalid:', validate.errors);",
+									"} else {",
+									"    console.log('Request is valid');",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -262,6 +261,7 @@
 									"console.log(pm.request)",
 									"",
 									"// Retrieve the correct schema for the given method and path",
+									"console.log(pm.request.url.path.join('/'))",
 									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
 									"console.log(schema)",
 									"// Initialize AJV",
@@ -326,7 +326,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
+							"raw": "{\n    \"inputs\": \"Write the word 'Washington' to a .txt file\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3473,6 +3473,13 @@
 				}
 			],
 			"id": "2acad219-3aae-4d19-ba5d-2084cfd48bac"
+		}
+	],
+	"variable": [
+		{
+			"id": "d09ef50f-4c88-4143-87cc-59d347fa3374",
+			"key": "coll-schema",
+			"value": ""
 		}
 	]
 }
