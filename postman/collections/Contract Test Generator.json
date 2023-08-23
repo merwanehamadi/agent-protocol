@@ -739,6 +739,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "f29f66e2-f2f9-4377-af51-fccd47a3af15",
 								"exec": [
 									"const schema = JSON.parse(pm.collectionVariables.get('coll-schema'));\r",
 									"\r",
@@ -1049,13 +1050,13 @@
 									"  return parameters;\r",
 									"}"
 								],
-								"type": "text/javascript",
-								"id": "f29f66e2-f2f9-4377-af51-fccd47a3af15"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "7fc4644f-2f54-4a3d-b398-249d409027a9",
 								"exec": [
 									"let schemaTests = pm.collectionVariables.get('coll-schemaTests');\r",
 									"if(schemaTests){\r",
@@ -1065,8 +1066,7 @@
 									"    }\r",
 									"}"
 								],
-								"type": "text/javascript",
-								"id": "7fc4644f-2f54-4a3d-b398-249d409027a9"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1569,43 +1569,6 @@
 				],
 				"id": "32d28173-e9a0-4556-b4cc-92782900dcb5"
 			}
-		}
-	],
-	"variable": [
-		{
-			"id": "fd80c648-ad14-4bc6-b357-02c4a2c9ec9d",
-			"key": "coll-apiIds",
-			"value": ""
-		},
-		{
-			"id": "dfa4ac01-b447-4956-b1c4-45e4375d4114",
-			"key": "coll-apiId",
-			"value": ""
-		},
-		{
-			"id": "ffa17ed0-426a-46f1-802d-ae576c24dcfb",
-			"key": "coll-versionId",
-			"value": ""
-		},
-		{
-			"id": "a0fdfa16-e991-47d7-a0db-5927219ff0fc",
-			"key": "coll-schemaId",
-			"value": ""
-		},
-		{
-			"id": "6d5a7079-36af-4490-a472-53c55cd229fb",
-			"key": "coll-schema",
-			"value": ""
-		},
-		{
-			"id": "bb0cd27c-d80c-4eef-b2ce-b185da9748a1",
-			"key": "coll-baseUrl",
-			"value": ""
-		},
-		{
-			"id": "34b24008-4dfc-4876-8678-38df28444cf7",
-			"key": "coll-schemaTests",
-			"value": ""
 		}
 	]
 }
