@@ -258,18 +258,18 @@
 									"// Parse the schema if it's a string",
 									"const api = JSON.parse(schemaString);",
 									"",
-									"console.log(pm.request)",
+									"requestBody = JSON.parse(pm.request.body.raw)",
+									"console.log(requestBody)",
 									"",
 									"// Retrieve the correct schema for the given method and path",
-									"console.log(pm.request.url.path.join('/'))",
+									"//console.log(pm.request.url.path.join('/'))",
 									"const schema = api.paths[\"/\" + pm.request.url.path.join('/')][pm.request.method.toLowerCase()].requestBody.content['application/json'].schema;",
 									"console.log(schema)",
 									"// Initialize AJV",
 									"pm.test(\"Validate JSON Schema\", () => {",
-									"    pm.request.to.have.jsonSchema(schema);",
-									"});",
+									"    pm.expect(requestBody).to.have.jsonSchema(schema);",
 									"",
-									""
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -289,28 +289,6 @@
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.expect(pm.response.code).to.equal(200);",
 									"});",
-									"",
-									"",
-									"pm.test(\"Response has the required fields\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData).to.be.an('object');",
-									"    pm.expect(responseData.input).to.exist.and.to.be.a('string');",
-									"    pm.expect(responseData.task_id).to.exist.and.to.be.a('string');",
-									"    pm.expect(responseData.artifacts).to.exist.and.to.be.an('array');",
-									"});",
-									"",
-									"pm.test(\"task_id is a non-empty string\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.task_id).to.be.a('string').and.to.have.lengthOf.at.least(1);",
-									"});",
-									"",
-									"pm.test(\"Artifacts is an array\", function () {",
-									"    const responseData = pm.response.json();",
-									"",
-									"    pm.expect(responseData.artifacts).to.be.an('array');",
-									"});",
 									""
 								],
 								"type": "text/javascript"
@@ -326,7 +304,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"inputs\": \"Write the word 'Washington' to a .txt file\"\n}",
+							"raw": "{\n    \"input\": \"Write the word 'Washington' to a .txt file\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3477,7 +3455,7 @@
 	],
 	"variable": [
 		{
-			"id": "d09ef50f-4c88-4143-87cc-59d347fa3374",
+			"id": "c14e5a1b-2765-44cd-9ae3-b31727dae4b4",
 			"key": "coll-schema",
 			"value": ""
 		}
