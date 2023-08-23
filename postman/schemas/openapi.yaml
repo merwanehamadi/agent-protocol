@@ -89,6 +89,7 @@ paths:
                   in: path
                   description: ID of the task
                   required: true
+                  example: "1d5a533e-3904-4401-8a07-c49adf88b981"
                   schema:
                       type: string
             responses:
