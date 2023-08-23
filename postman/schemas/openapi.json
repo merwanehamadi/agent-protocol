@@ -441,6 +441,7 @@
             "name": "page",
             "in": "query",
             "description": "Page number",
+            "example": 2,
             "required": false,
             "schema": {
               "type": "integer",
@@ -802,6 +803,7 @@
           {
             "name": "step_id",
             "in": "path",
+            "example": "28ca533e-3904-4401-8a07-c49adf8891c2",
             "description": "ID of the step",
             "required": true,
             "schema": {
@@ -954,6 +956,7 @@
             "name": "page",
             "in": "query",
             "description": "Page number",
+            "example": 2,
             "required": false,
             "schema": {
               "type": "integer",
@@ -1161,6 +1164,7 @@
           {
             "name": "artifact_id",
             "in": "path",
+            "example": "1e41533e-3904-4401-8a07-c49adf8893de",
             "description": "ID of the artifact",
             "required": true,
             "schema": {
