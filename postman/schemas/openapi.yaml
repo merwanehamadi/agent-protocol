@@ -377,7 +377,6 @@ components:
             type: object
             required:
                 - "artifact_id"
-                - "file_name"
                 - "agent_created"
             description: An Artifact either created by or submitted to the agent.
             properties:
@@ -385,10 +384,6 @@ components:
                     type: string
                     description: ID of the artifact.
                     example: b225e278-8b4c-4f99-a696-8facf19f0e56
-                file_name:
-                    type: string
-                    description: Filename of the artifact.
-                    example: main.py
                 agent_created:
                     type: boolean
                     description: Whether the artifact has been created by the agent.
