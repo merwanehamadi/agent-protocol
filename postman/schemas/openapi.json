@@ -165,6 +165,7 @@
             "in": "query",
             "description": "Number of items per page",
             "required": false,
+            "example": 25,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -292,7 +293,8 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -449,6 +451,7 @@
             "in": "query",
             "description": "Number of items per page",
             "required": false,
+            "example": 25,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -592,7 +595,8 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -951,6 +955,7 @@
             "in": "query",
             "description": "Number of items per page",
             "required": false,
+            "example": 25,
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1020,7 +1025,8 @@
                         },
                         "pageSize": {
                           "type": "integer",
-                          "description": "Number of items per page."
+                          "description": "Number of items per page.",
+                          "example": 25
                         }
                       }
                     }
@@ -1192,7 +1198,8 @@
           },
           "pageSize": {
             "type": "integer",
-            "description": "Number of items per page."
+            "description": "Number of items per page.",
+            "example": 25
           }
         }
       },
@@ -1295,7 +1302,8 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
@@ -1431,7 +1439,8 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
@@ -1493,7 +1502,8 @@
               },
               "pageSize": {
                 "type": "integer",
-                "description": "Number of items per page."
+                "description": "Number of items per page.",
+                "example": 25
               }
             }
           }
