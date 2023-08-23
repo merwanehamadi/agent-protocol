@@ -473,6 +473,7 @@ components:
                       status:
                           description: The status of the task step.
                           type: string
+                          example: "created"
                           enum:
                               - "created"
                               - "running"
@@ -493,3 +494,4 @@ components:
                           description: Whether this is the last step in the task.
                           type: boolean
                           default: false
+                          example: true

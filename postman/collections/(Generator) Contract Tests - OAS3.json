@@ -1584,17 +1584,12 @@
 	],
 	"variable": [
 		{
-			"id": "06c097d7-0bcd-45b2-94c6-07479922ccfe",
+			"id": "624328ee-e119-47d7-bc9c-222c201d9989",
 			"key": "coll-schema",
 			"value": ""
 		},
 		{
-			"id": "7677bff2-680c-4499-885e-d48d3798deb8",
-			"key": "coll-schemaTests",
-			"value": ""
-		},
-		{
-			"id": "f66a0cbc-4f27-4973-91c5-e12b38d09315",
+			"id": "d86658aa-3a60-4926-bde4-875cb692cd5f",
 			"key": "coll-baseUrl",
 			"value": ""
 		}
