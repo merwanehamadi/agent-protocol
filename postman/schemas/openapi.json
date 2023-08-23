@@ -561,7 +561,8 @@
                               "is_last": {
                                 "description": "Whether this is the last step in the task.",
                                 "type": "boolean",
-                                "default": false
+                                "default": false,
+                                "example": true
                               }
                             }
                           }
@@ -746,7 +747,8 @@
                         "is_last": {
                           "description": "Whether this is the last step in the task.",
                           "type": "boolean",
-                          "default": false
+                          "default": false,
+                          "example": true
                         }
                       }
                     }
@@ -893,7 +895,8 @@
                         "is_last": {
                           "description": "Whether this is the last step in the task.",
                           "type": "boolean",
-                          "default": false
+                          "default": false,
+                          "example": true
                         }
                       }
                     }
@@ -1399,7 +1402,8 @@
                     "is_last": {
                       "description": "Whether this is the last step in the task.",
                       "type": "boolean",
-                      "default": false
+                      "default": false,
+                      "example": true
                     }
                   }
                 }
@@ -1737,7 +1741,8 @@
               "is_last": {
                 "description": "Whether this is the last step in the task.",
                 "type": "boolean",
-                "default": false
+                "default": false,
+                "example": true
               }
             }
           }
