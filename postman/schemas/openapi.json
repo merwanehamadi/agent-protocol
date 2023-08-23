@@ -136,7 +136,7 @@
         "operationId": "listAgentTasksIDs",
         "parameters": [
           {
-            "name": "page",
+            "name": "current_page",
             "in": "query",
             "description": "Page number",
             "required": false,
@@ -261,6 +261,12 @@
                     },
                     "pagination": {
                       "type": "object",
+                      "required": [
+                        "total_items",
+                        "total_pages",
+                        "current_page",
+                        "page_size"
+                      ],
                       "properties": {
                         "total_items": {
                           "type": "integer",
@@ -421,7 +427,7 @@
             }
           },
           {
-            "name": "page",
+            "name": "current_page",
             "in": "query",
             "description": "Page number",
             "example": 2,
@@ -564,6 +570,12 @@
                     },
                     "pagination": {
                       "type": "object",
+                      "required": [
+                        "total_items",
+                        "total_pages",
+                        "current_page",
+                        "page_size"
+                      ],
                       "properties": {
                         "total_items": {
                           "type": "integer",
@@ -933,7 +945,7 @@
             }
           },
           {
-            "name": "page",
+            "name": "current_page",
             "in": "query",
             "description": "Page number",
             "example": 2,
@@ -997,6 +1009,12 @@
                     },
                     "pagination": {
                       "type": "object",
+                      "required": [
+                        "total_items",
+                        "total_pages",
+                        "current_page",
+                        "page_size"
+                      ],
                       "properties": {
                         "total_items": {
                           "type": "integer",
@@ -1168,6 +1186,12 @@
     "schemas": {
       "Pagination": {
         "type": "object",
+        "required": [
+          "total_items",
+          "total_pages",
+          "current_page",
+          "page_size"
+        ],
         "properties": {
           "total_items": {
             "type": "integer",
@@ -1270,6 +1294,12 @@
           },
           "pagination": {
             "type": "object",
+            "required": [
+              "total_items",
+              "total_pages",
+              "current_page",
+              "page_size"
+            ],
             "properties": {
               "total_items": {
                 "type": "integer",
@@ -1407,6 +1437,12 @@
           },
           "pagination": {
             "type": "object",
+            "required": [
+              "total_items",
+              "total_pages",
+              "current_page",
+              "page_size"
+            ],
             "properties": {
               "total_items": {
                 "type": "integer",
@@ -1465,6 +1501,12 @@
           },
           "pagination": {
             "type": "object",
+            "required": [
+              "total_items",
+              "total_pages",
+              "current_page",
+              "page_size"
+            ],
             "properties": {
               "total_items": {
                 "type": "integer",
