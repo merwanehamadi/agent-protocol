@@ -22,6 +22,18 @@ else
 fi
 
 # Inform the user that the process may take some time
+cat << "EOF"
+                           _     _____           _                  _ 
+     /\                   | |   |  __ \         | |                | |
+    /  \   __ _  ___ _ __ | |_  | |__) | __ ___ | |_ ___   ___ ___ | |
+   / /\ \ / _` |/ _ \ '_ \| __| |  ___/ '__/ _ \| __/ _ \ / __/ _ \| |
+  / ____ \ (_| |  __/ | | | |_  | |   | | | (_) | || (_) | (_| (_) | |
+ /_/    \_\__, |\___|_| |_|\__| |_|   |_|  \___/ \__\___/ \___\___/|_|
+           __/ |                                                      
+          |___/                                                       
+
+EOF
+
 echo "Running the tests, this might take a while. Please wait..."
 
 newman run https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/agent_protocol_v0.4.json \
