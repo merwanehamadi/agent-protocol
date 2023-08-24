@@ -17,8 +17,6 @@ fi
 if ! command -v newman &> /dev/null; then
   echo "newman is not found. Installing..."
   npm install -g newman
-else
-  echo "newman is already installed"
 fi
 
 # Inform the user that the process may take some time
