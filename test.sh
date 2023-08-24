@@ -37,7 +37,7 @@ cat << "EOF"
            \______/                                                                                                              
 
 EOF
-echo "Powered by Allen Helton's powerful contract generators: https://github.com/allenheltondev/postman-contract-test-generator"
+echo "Powered by Allen Helton's powerful contract test generators: https://github.com/allenheltondev/postman-contract-test-generator"
 
 echo "Running the tests, this might take a while. Please wait..."
 
