@@ -31,10 +31,13 @@ cat << "EOF"
            __/ |                                                      
           |___/                                                       
 
-Made possible by: 
-- Allen Helton's contract test generators: https://github.com/allenheltondev/postman-contract-test-generator
-- Postman and Newman's tool report: https://github.com/DannyDainton/newman-reporter-htmlextra
+Made possible by:
+- e2b
+- Allen Helton
+- Postman
+- Auto-GPT
 
+Backed by a smol foundation planned to be announced in the AI engineer summit... Stay tuned.
 
 Running the tests, this might take a while. Please wait...
 
