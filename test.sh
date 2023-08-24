@@ -48,3 +48,11 @@ newman run https://raw.githubusercontent.com/Significant-Gravitas/postman/master
 --env-var "url=$URL" \
 -r htmlextra \
 --reporter-htmlextra-export report.html
+
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  open report.html
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  xdg-open report.html  
+fi
+echo "If your browser didn't display the report, please manually open the report.html located in your directory."
