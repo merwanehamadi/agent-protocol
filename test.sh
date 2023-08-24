@@ -22,20 +22,15 @@ fi
 # Inform the user that the process may take some time
 cat << "EOF"
 
-  /$$$$$$                                  /$$           /$$$$$$$                       /$$                                   /$$
- /$$__  $$                                | $$          | $$__  $$                     | $$                                  | $$
-| $$  \ $$  /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$        | $$  \ $$ /$$$$$$   /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$$  /$$$$$$ | $$
-| $$$$$$$$ /$$__  $$ /$$__  $$| $$__  $$|_  $$_/        | $$$$$$$//$$__  $$ /$$__  $$|_  $$_/   /$$__  $$ /$$_____/ /$$__  $$| $$
-| $$__  $$| $$  \ $$| $$$$$$$$| $$  \ $$  | $$          | $$____/| $$  \__/| $$  \ $$  | $$    | $$  \ $$| $$      | $$  \ $$| $$
-| $$  | $$| $$  | $$| $$_____/| $$  | $$  | $$ /$$      | $$     | $$      | $$  | $$  | $$ /$$| $$  | $$| $$      | $$  | $$| $$
-| $$  | $$|  $$$$$$$|  $$$$$$$| $$  | $$  |  $$$$/      | $$     | $$      |  $$$$$$/  |  $$$$/|  $$$$$$/|  $$$$$$$|  $$$$$$/| $$
-|__/  |__/ \____  $$ \_______/|__/  |__/   \___/        |__/     |__/       \______/    \___/   \______/  \_______/ \______/ |__/
-           /$$  \ $$                                                                                                             
-          |  $$$$$$/                                                                                                             
-           \______/                                                                                                              
+.__.         ,   .__      ,         .
+[__] _  _ ._-+-  [__)._._-+-_  _. _ |
+|  |(_](/,[ )|   |   [ (_)|(_)(_.(_)|
+    ._|                              
 
+Powered by: 
+- Allen Helton's contract test generators: https://github.com/allenheltondev/postman-contract-test-generator
+- Postman and Newman's tool report: https://github.com/DannyDainton/newman-reporter-htmlextra
 
-Powered by Allen Helton's powerful contract test generators: https://github.com/allenheltondev/postman-contract-test-generator"
 
 Running the tests, this might take a while. Please wait...
 
