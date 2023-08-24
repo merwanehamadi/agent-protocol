@@ -34,10 +34,12 @@ cat << "EOF"
           |  $$$$$$/                                                                                                             
            \______/                                                                                                              
 
-EOF
-echo "Powered by Allen Helton's powerful contract test generators: https://github.com/allenheltondev/postman-contract-test-generator"
 
-echo "Running the tests, this might take a while. Please wait..."
+Powered by Allen Helton's powerful contract test generators: https://github.com/allenheltondev/postman-contract-test-generator"
+
+Running the tests, this might take a while. Please wait...
+
+EOF
 
 newman run https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/agent_protocol_v0.4.json \
 -e https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/env_0.4.json \
