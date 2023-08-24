@@ -21,6 +21,9 @@ else
   echo "newman is already installed"
 fi
 
+# Inform the user that the process may take some time
+echo "Running the tests, this might take a while. Please wait..."
+
 newman run https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/agent_protocol_v0.4.json \
 -e https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/env_0.4.json \
 --env-var "url=$URL" \
