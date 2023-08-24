@@ -24,4 +24,4 @@ newman run https://raw.githubusercontent.com/Significant-Gravitas/postman/master
 -e https://raw.githubusercontent.com/Significant-Gravitas/postman/master/Postman%20Collections/env_0.4.json \
 --env-var "url=$URL" \
 -r htmlextra \
---reporter-htmlextra-export report.html
+--reporter-htmlextra-export agent-protocol.html
