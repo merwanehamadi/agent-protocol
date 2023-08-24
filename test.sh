@@ -21,16 +21,17 @@ fi
 
 # Inform the user that the process may take some time
 cat << "EOF"
-                           _     _____           _                   _ 
-     /\                   | |   |  __ \         | |                 | |
-    /  \   __ _  ___ _ __ | |_  | |__) | __ ___ | |_ ___   ___   ___| |
-   / /\ \ / _` |/ _ \ '_ \| __| |  ___/ '__/ _ \| __/ _ \ / _ \ / __| |
-  / ____ \ (_| |  __/ | | | |_  | |   | | | (_) | || (_) | (_) | (__| |
- /_/    \_\__, |\___|_| |_|\__| |_|   |_|  \___/ \__\___/ \___/ \___|_|
-           __/ |                                                       
-          |___/                                                        
 
-Powered by: 
+                           _     _____           _                  _ 
+     /\                   | |   |  __ \         | |                | |
+    /  \   __ _  ___ _ __ | |_  | |__) | __ ___ | |_ ___   ___ ___ | |
+   / /\ \ / _` |/ _ \ '_ \| __| |  ___/ '__/ _ \| __/ _ \ / __/ _ \| |
+  / ____ \ (_| |  __/ | | | |_  | |   | | | (_) | || (_) | (_| (_) | |
+ /_/    \_\__, |\___|_| |_|\__| |_|   |_|  \___/ \__\___/ \___\___/|_|
+           __/ |                                                      
+          |___/                                                       
+
+Made possible by: 
 - Allen Helton's contract test generators: https://github.com/allenheltondev/postman-contract-test-generator
 - Postman and Newman's tool report: https://github.com/DannyDainton/newman-reporter-htmlextra
 
