@@ -23,7 +23,6 @@ fi
 
 # Inform the user that the process may take some time
 cat << "EOF"
-cat << "EOF"
 
   /$$$$$$                                  /$$           /$$$$$$$                       /$$                                   /$$
  /$$__  $$                                | $$          | $$__  $$                     | $$                                  | $$
