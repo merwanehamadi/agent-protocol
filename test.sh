@@ -17,6 +17,7 @@ fi
 if ! command -v newman &> /dev/null; then
   echo "newman is not found. Installing..."
   npm install -g newman
+  npm install -g newman-reporter-htmlextra
 fi
 
 # Inform the user that the process may take some time
